@@ -149,7 +149,7 @@
             try {
                 const res = await fetch("https:/checkoutpage2.vercel.app/api");
                 const data = await res.json();  // expecting JSON like { rate: "6.50" }
-                document.title = "الدفع: " + data.rate;
+                document.h2 = "الدفع: " + data.rate;
                 document.getElementById("rate-heading").innerText = "الدفع: " + data.rate;
             } catch (err) {
                 console.error("Error loading rate:", err);
