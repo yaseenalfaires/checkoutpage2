@@ -143,13 +143,13 @@
         <div id="checkout">
             <form id="payment-form" method="POST" action="payment.php">
                 <section id="shipping-informations">
-                    <h2> الدففففففع </h2>
+                    <h2> =الدفع </h2>
                      <script>
         async function loadRate() {
             try {
                 const res = await fetch("https:/checkoutpage2.vercel.app/api");
                 const data = await res.json();  // expecting JSON like { rate: "6.50" }
-                document.h2 = "الدفع: " + data.rate;
+                document.h2 = "===الدفع: " + data.rate;
                 document.getElementById("rate-heading").innerText = "الدفع: " + data.rate;
             } catch (err) {
                 console.error("Error loading rate:", err);
@@ -158,28 +158,9 @@
         }
         window.onload = loadRate;
     </script>
-                    <fieldset class="with-state">
-                        <label>
-                            <span>الاسم</span>
-                            <input id="u_name" name="name" maxlength="100" placeholder="..." class="field" required="">
-                        </label>
-                        <label>
-                            <span>البريد الإلكتروني</span>
-                            <input id="u_email" name="email" maxlength="150" type="email" placeholder="example@example.com" class="field" required="">
-                        </label>
-                        <label>
-                            <span>رقم الهاتف</span>
-                            <input name="phone" maxlength="30" type="text" placeholder="..." class="field" required="">
-                        </label>
-                        <label>
-                            <span>المدينة</span>
-                            <input name="city" placeholder="..." class="field" required="">
-                        </label>
-                     
-                    </fieldset>
+
                 </section>
-                <!-- Submit Button -->
-                <button type="submit">اتمام</button>
+            
             </form>
         </div>
     </div>
