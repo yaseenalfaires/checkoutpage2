@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
+    <meta charset="utf-8">
+    <title>الدفع</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* CSS for Modern, Clean Form Design */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f8f9fa;
@@ -16,116 +18,16 @@
         }
 
         h2 {
-            font-size: 24px;
-            color: #555;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #main {
-            max-width: 500px;
-            width: 100%;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-
-        fieldset {
-            border: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 20px;
-            font-weight: 500;
-            color: #666;
-        }
-
-        label span {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-
-        .field {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
+            font-size: 28px;
             color: #333;
-            background-color: #f9f9f9;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .field:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-            outline: none;
-        }
-
-        input::placeholder {
-            color: #bbb;
-        }
-
-        #payment-form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        #checkout {
-            margin-top: 20px;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        @media (max-width: 576px) {
-            #main {
-                padding: 15px;
-                box-shadow: none;
-            }
-
-            h2 {
-                font-size: 20px;
-            }
-
-            .field {
-                font-size: 14px;
-            }
-
-            button[type="submit"] {
-                font-size: 16px;
-            }
+            text-align: center;
         }
     </style>
-</head>
-<body>
-    <title> الدففففع</title>
-       <script>
+    <script>
         async function loadRate() {
             try {
-                const res = await fetch("https:/checkoutpage2.vercel.app/api");
-                const data = await res.json();  // expecting JSON like { rate: "6.50" }
+                const res = await fetch("https://checkoutpage2.vercel.app/api");
+                const data = await res.json();
                 document.title = "الدفع: " + data.rate;
                 document.getElementById("rate-heading").innerText = "الدفع: " + data.rate;
             } catch (err) {
@@ -133,36 +35,11 @@
                 document.getElementById("rate-heading").innerText = "الدفع: غير متوفر";
             }
         }
-        window.onload = loadRate;
-    </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <div id="main" class="loading">
-        <div id="div_loading"></div>
-        <div id="checkout">
-            <form id="payment-form" method="POST" action="payment.php">
-                <section id="shipping-informations">
-                    <h2> =الدفع </h2>
-                     <script>
-        async function loadRate() {
-            try {
-                const res = await fetch("https:/checkoutpage2.vercel.app/api");
-                const data = await res.json();  // expecting JSON like { rate: "6.50" }
-                document.h2 = "===الدفع: " + data.rate;
-                document.getElementById("rate-heading").innerText = "الدفع: " + data.rate;
-            } catch (err) {
-                console.error("Error loading rate:", err);
-                document.getElementById("rate-heading").innerText = "الدفع: غير متوفر";
-            }
-        }
-        window.onload = loadRate;
-    </script>
 
-                </section>
-            
-            </form>
-        </div>
-    </div>
+        window.onload = loadRate;
+    </script>
+</head>
+<body>
+    <h2 id="rate-heading">الدفع: ...</h2>
 </body>
 </html>
