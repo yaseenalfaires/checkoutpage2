@@ -9,6 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, HttpUrl
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from tenacity import retry, stop_after_attempt, wait_exponential
+from fastapi.responses import JSONResponse
+
 
 # Import your Gemini service (mock implementation included below)
 # This mock simulates Gemini's response for testing purposes.
