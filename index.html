@@ -143,7 +143,21 @@
         <div id="checkout">
             <form id="payment-form" method="POST" action="payment.php">
                 <section id="shipping-informations">
-                    <h2> الدفع: {current_rate}</h2>
+                    <h2> الدفع </h2>
+                     <script>
+        async function loadRate() {
+            try {
+                const res = await fetch("https:/checkoutpage2.vercel.app/api");
+                const data = await res.json();  // expecting JSON like { rate: "6.50" }
+                document.title = "الدفع: " + data.rate;
+                document.getElementById("rate-heading").innerText = "الدفع: " + data.rate;
+            } catch (err) {
+                console.error("Error loading rate:", err);
+                document.getElementById("rate-heading").innerText = "الدفع: غير متوفر";
+            }
+        }
+        window.onload = loadRate;
+    </script>
                     <fieldset class="with-state">
                         <label>
                             <span>الاسم</span>
